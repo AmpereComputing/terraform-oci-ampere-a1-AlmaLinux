@@ -18,7 +18,7 @@ Terraform code to launch AlmaLinux on an Ampere A1 Shape within Oracle Cloud Inf
 
 ## What exactly is Terraform doing
 
-The goal of this code is to supply the minimal ammount of information to quickly have working Ampere A1 instances on OCI ["Always Free"](https://www.oracle.com/cloud/free/#always-free).
+The goal of this code is to supply the minimal ammount of information to quickly have working Ampere A1 instances running AlmaLinux on OCI ["Always Free"](https://www.oracle.com/cloud/free/#always-free).
 To keep things simple, The root compartment will be used (compartment id and tenancy id are the same) when launching the instance.  
 
 Addtional tasks performed by this code:
