@@ -6,12 +6,13 @@
 
 ## Description
 
-Terraform code to launch a Ampere A1 Shape on Oracle Cloud Infrastructure (OCI) Free-Tier
+Terraform code to launch AlmaLinux on an Ampere A1 Shape within Oracle Cloud Infrastructure (OCI) Free-Tier
 
 ## Requirements
 
  * [Terraform](https://www.terraform.io/downloads.html)
  * [Oracle OCI "Always Free" Account](https://www.oracle.com/cloud/free/#always-free)
+ * [AlmaLinux](https://almalinux.org/)
 
 
 
