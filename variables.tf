@@ -30,7 +30,7 @@ variable "oci_vcn_cidr_subnet" {
 
 variable "instance_prefix" {
   description = "Name prefix for vm instances"
-  default = "ampere-a1-"
+  default = "almalinux-ampere-a1"
 }
 
 # OCI Free Tier Ampere A1 provides 4 cores and  24G of memory.
@@ -41,7 +41,7 @@ variable "instance_prefix" {
 
 variable "oci_vm_count" {
   description = "OCI Free Tier Ampere A1 is two instances"
-  default = 4
+  default = 1
 }
 
 variable "ampere_a1_vm_memory" {

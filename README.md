@@ -43,6 +43,7 @@ The following is an example of what terraform.tfvars should look like:
 tenancy_ocid = "ocid1.tenancy.oc1..aaaaaaaabcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopq"
 user_ocid = "ocid1.user.oc1..aaaaaaaabcdefghijklmnopqrstuvwxyz0987654321zyxwvustqrponmlkj"
 fingerprint = "a1:01:b2:02:c3:03:e4:04:10:11:12:13:14:15:16:17"
+private_key_path = "/home/bwayne/.oci/oracleidentitycloudservice_bwayne-04-06-03-42.pem"
 ```
 
 ### Using as a Module
@@ -55,8 +56,8 @@ variable "user_ocid" {}
 variable "fingerprint" {}
 variable "private_key_path" {}
 
-module "oci-ampere-a1" {
-  source                   = "github.com/amperecomputing/terraform-oci-ampere-a1"
+module "oci-ampere-a1-AlmaLinux" {
+  source                   = "github.com/amperecomputing/terraform-oci-ampere-a1-AlmaLinux"
   tenancy_ocid             = var.tenancy_ocid
   user_ocid                = var.user_ocid
   fingerprint              = var.fingerprint
@@ -84,8 +85,15 @@ output "oci_ampere_a1_public_ips" {
 terraform init && terraform plan && terraform apply -auto-approve
 ```
 
+### Connecting to the instance
 
-<script id="asciicast-432487" src="https://asciinema.org/a/432487.js" async data-autoplay="true" data-size="small" data-speed="2"></script>
+The default user is "opc".  
+Using an ssh client, outputted external IP address, and the key this terraform created, type the following from within the directory you ran Terraform.
+
+```
+ssh -i ./oci-id_rsa opc@<IPADDRESS>
+```
+
 
 
 ### Additional Terraform resources for OCI Ampere A1
@@ -109,3 +117,6 @@ terraform init && terraform plan && terraform apply -auto-approve
 * [Oracle Cloud Always Free](https://www.oracle.com/cloud/free/#always-free)
 * [OCI Terraform Level 200](https://www.oracle.com/a/ocom/docs/terraform-200.pdf)
 * [OCI Deploy Button](https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Tasks/deploybutton.htm)
+* [Working with OCI Marketplace Stacks](https://www.abhinavkotnala.com/?p=377)
+* [Using Terraform for Marketplace images](https://blogs.oracle.com/cloud-infrastructure/post/using-terraform-for-marketplace-images)
+private_key_path = "/home/ansible/.oci/oracleidentitycloudservice_ppouliot-08-09-14-59.pem"

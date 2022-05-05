@@ -13,13 +13,12 @@ resource "oci_core_instance" "ampere_a1" {
   }
 
   shape_config {
-
     memory_in_gbs = var.ampere_a1_vm_memory
     ocpus         = var.ampere_a1_cpu_core_count
   }
   source_details {
     source_type = "image"
-    source_id   = data.oci_core_images.almalinux-8_4-aarch64.images.0.id
+    source_id   = data.oci_core_app_catalog_listing_resource_version.almalinux_8_5_catalog_listing.listing_resource_id
   }
 
   metadata = {
@@ -27,4 +26,10 @@ resource "oci_core_instance" "ampere_a1" {
     user_data = "${base64encode(data.template_file.cloud_config.rendered)}"
     
   }
+
+  lifecycle {
+    ignore_changes = [ source_details[0].source_id, ]
+  }
+
+  depends_on = [data.oci_core_app_catalog_listing_resource_version.almalinux_8_5_catalog_listing]
 }
