@@ -5,7 +5,7 @@
 data "oci_core_images" "almalinux-8_4-aarch64" {
   compartment_id = var.tenancy_ocid
 
-  operating_system         = "Alma Linux"
+  operating_system         = "AlmaLinux"
   operating_system_version = "8"
 
   # include Aarch64 specific images
